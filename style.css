@@ -132,3 +132,80 @@ footer {
   text-align: center;
   font-size: 1.2em;
 }
+
+/* Адаптация для мобильных устройств */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 20px;
+    font-size: 1.8em;
+  }
+
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    font-size: 1em;
+  }
+
+  section {
+    padding: 20px;
+    margin: 20px 10px;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+
+  .carousel {
+    max-width: 100%;
+    margin: 20px 10px;
+  }
+
+  .carousel-item p {
+    font-size: 1em;
+  }
+
+  .carousel-button {
+    padding: 10px;
+  }
+
+  footer {
+    padding: 10px;
+    font-size: 1em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header {
+    font-size: 1.5em;
+  }
+
+  nav ul li a {
+    font-size: 0.9em;
+  }
+
+  section {
+    padding: 15px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 0.9em;
+  }
+
+  .carousel-button {
+    padding: 8px;
+  }
+}
