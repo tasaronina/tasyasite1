@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="description" content="Добро пожаловать на мой личный сайт! Здесь вы можете узнать обо мне, увидеть мои фотографии, познакомиться с моими друзьями и узнать о цветах моих волос." />
+    <title>Личный сайт</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Добро пожаловать на мой личный сайт!</h1>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#photos">Мои фотографии</a></li>
+        <li><a href="#friends">Мои друзья</a></li>
+        <li><a href="#hair-colors">Цвета моих волос</a></li>
+    </ul>
+</nav>
+
+<section id="about">
+    <h2>Обо мне</h2>
+    <p>Хей! Меня зовут Тая и этот сайт рассказывает о частичке меня, состоящей из меня, моих друзей и истории моих волос.</p>
+</section>
+
+<section id="photos">
+    <h2>Мои фотографии</h2>
+    <div class="carousel" id="photosCarousel" data-current-slide="0">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/photo_2024-10-26_23-59-23.jpg" alt="Маленькая я">
+                <p>Маленькая я</p>
+            </div>
+            <div class="carousel-item">
+                <img src="images/photo_2024-10-26_23-59-27.jpg" alt="Чуть побольше я">
+                <p>Чуть побольше я</p>
+            </div>
+        </div>
+        <button class="carousel-button prev" onclick="prevSlide('photosCarousel')">&#10094;</button>
+        <button class="carousel-button next" onclick="nextSlide('photosCarousel')">&#10095;</button>
+    </div>
+</section>
+
+<section id="friends">
+    <h2>Мои друзья</h2>
+    <div class="carousel" id="friendsCarousel" data-current-slide="0">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/КРИСТИНА.jpg" alt="Это Игорь, Кристина и дедушка бурят">
+                <p>Это Игорь, Кристина и дедушка бурят</p>
+            </div>
+            <div class="carousel-item">
+                <img src="images/ЮЛЯ.jpg" alt="Это с мы Юлей на моем дне рождение ">
+                <p>Это с мы Юлей на моем дне рождение </p>
+            </div>
+            <div class="carousel-item">
+                <img src="images/ТРОФИМ.jpg" alt="Это мой младший брат Трофим  и наша собака Зюма">
+                <p>Это мой младший брат Трофим  и наша собака Зюма</p>
+            </div>
+        </div>
+        <button class="carousel-button prev" onclick="prevSlide('friendsCarousel')">&#10094;</button>
+        <button class="carousel-button next" onclick="nextSlide('friendsCarousel')">&#10095;</button>
+    </div>
+</section>
+
+<<section id="hair-colors">
+    <h2>Цвета моих волос</h2>
+    <div class="carousel" id="hairCarousel" data-current-slide="0">
+        <div class="carousel-inner">
+            <!-- Карточки с фотографиями и описаниями -->
+            <div class="carousel-item active">
+                <img src="images/photo_2024-10-26_23-59-44.jpg" alt="Это мои первые и последние черные волосы">
+                <p>Это мои первые и последние черные волосы</p>
+            </div>
+            <div class="carousel-item">
+                <img src="images/photo_2024-10-26_23-59-45.jpg" alt="Это я уже после черного немного рыжая">
+                <p>Это я уже после черного немного рыжая</p>
+            </div>
+            <div class="carousel-item">
+                <img src="images/photo_2024-10-26_23-59-47.jpg" alt="Это я с каре и с песочным цветом волос">
+                <p>Это я с каре и с песочным цветом волос</p>
+            </div>
+            <div class="carousel-item">
+                <img src="images/photo_2024-10-27_00-00-00.jpg" alt="Это я уже отрастила свои натуральные волосы">
+                <p>Это я уже отрастила свои натуральные волосы</p>
+            </div>
+        </div>
+        <!-- Кнопки управления -->
+        <button class="carousel-button prev" onclick="prevSlide('hairCarousel')">&#10094;</button>
+        <button class="carousel-button next" onclick="nextSlide('hairCarousel')">&#10095;</button>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2024 Личный сайт Таи</p>
+</footer>
+
+<script>
+    function showSlide(carouselId, index) {
+        const carousel = document.getElementById(carouselId);
+        const slides = carousel.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+        let currentSlide = parseInt(carousel.getAttribute('data-current-slide'));
+    
+        if (index >= totalSlides) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = totalSlides - 1;
+        } else {
+            currentSlide = index;
+        }
+    
+        carousel.setAttribute('data-current-slide', currentSlide);
+    
+        const offset = -currentSlide * 100;
+        carousel.querySelector('.carousel-inner').style.transform = `translateX(${offset}%)`;
+    }
+    
+    function nextSlide(carouselId) {
+        const currentSlide = parseInt(document.getElementById(carouselId).getAttribute('data-current-slide'));
+        showSlide(carouselId, currentSlide + 1);
+    }
+    
+    function prevSlide(carouselId) {
+        const currentSlide = parseInt(document.getElementById(carouselId).getAttribute('data-current-slide'));
+        showSlide(carouselId, currentSlide - 1);
+    }
+    </script>
+    
+    </body>
+    </html>
